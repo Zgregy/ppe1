@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PPE 1</title>
+        <meta charset="UTF-8">
+        <!-- CSS interne -->
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/prodeo-qd.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="./javascript/inscription.js"></script>
+    </head>
+    <body>
+        
+
+        <form method="POST" action="" id="form-inscription" enctype="multipart/form-data">
+            <div class="container panel-row-style" >
+                <div class="row">
+                    <!-- <div class="col-md-1"></div>     -->
+                    <div class="offset-md-1 col-md-10">
+                        <div class="panel-widget-style-header">
+                            <div class="row">
+                                <div class="col-md-12 title ">
+                                    <p class="title-margin">Formulaire d'inscription</p>    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1"></div>    
+                    <div class="col-md-10">
+                        <div class="panel-widget-style white-square-content">
+                            <div class="row text-center">
+                                <div class="col-md-12">
+                                    <span>Responsable ?</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <div id="groupe-label-responsable" class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary active" style="border-radius:5px;">
+                                            <input type="radio" name="responsable" id="responsabilite1" autocomplete="off" checked value="Oui">Oui
+                                        </label>
+                                        <label class="btn btn-secondary" style="border-radius:5px;">
+                                            <input type="radio" name="responsable" id="responsabilite2" autocomplete="off" value="Non">Non 
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- <div class="col-md-2"></div> -->
+                                <div class="offset-md-2 col-md-8">
+                                    <input type="text" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" placeholder="Identifiant" id="identifiant" name="identifiant" required>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <!-- <div class="col-md-2"></div> -->
+                                <div class="offset-md-2 col-md-8">
+                                    <input type="text" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" placeholder="mot de passe" id="motDePAsse" name="motDePasse" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- <div class="col-md-2"></div> -->
+                                <div class="offset-md-2 col-md-8">
+                                    <input type="text" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" placeholder="confirmation mot de passe" id="reMotDePasse" name="reMotDePasse" value="" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- <div class="col-md-2"></div> -->
+                                <div class="form-group offset-md-2 col-md-8">
+                                    <select id="inputState" class="form-control">
+                                        <option id="selectionner-ligue" selected>Sélectionner une ligue</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--! Message erreur -->
+                            <div id="msgErreur" class="row text-center cacher" >
+                                <div class="col-md-12">
+                                    <p class="msg-erreur"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2"></div>				
+                            </div>
+                            <div class="row">
+                                <!-- <div class="col-md-2"></div>-->
+                                <div class="offset-md-2 col-md-4">
+                                    <input type="button" value="Annuler" class="wpcf7-form-control wpcf7-submit btn btn-primary" onclick="location.href='./index.php?action=connexion';">
+                                </div>	
+                                <div class="col-md-4">
+                                    <input type="button" value="Valider" id="valideInscription" class="wpcf7-form-control wpcf7-submit btn btn-primary">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </form>
+        <!-- Modal validation inscription -->
+        <div class="modal fade bd-example-modal-lg" id="modalValideInscription" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content" style="border-radius: 15px;">
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="offset-md-1 col-md-10">
+                                            <div class="row text-center">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <img src="./images/Validation.png" class="validation text-center" style="width:200px;height:auto;">
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 0px;">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <p class="text-center">Félicitation ! Votre compte à bien été enregistré.</p>
+                                                    <p class="text-center">Pour vous connecter, cliquez sur le bouton "valider"</p>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" id="" class="btn btn-primary" onclick="window.location.href = './index.php?action=vueConnexion';">Valider</button>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+    </body>
+</html>

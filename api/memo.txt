@@ -1,0 +1,19 @@
+INSERT INTO reservation(reservation_demande, reservation_debut, reservation_fin, ligue_num, salle_num) VALUES 
+("'.$dateDemande.'", "'.$dateDebut.'", "'.$dateFin.'", '.$numLigue.', '.$numSalle.')
+
+jQuery("#salle_4 .type-salle").removeClass("titleCaseLibre").addClass("titleCaseOccup")
+
+
+
+AJOUTER UNE SALLE
+INSERT INTO salle(salle_nom, salle_places, salle_informatise) VALUES ('Chocolat', 25, 1)
+
+
+
+MODIFIER UNE SALLE
+UPDATE salle SET salle_nom = 'chocolatine', salle_places = 42, salle_informatise = 0 WHERE salle_nom = "chocolatt"
+
+
+
+AFFICHER TOUT LES UTILISATEUR
+SELECT utilisateur_identifiant, utilisateur_admin, utilisateur_responssable, utilisateur_verr FROM utilisateur

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PPE 1</title>
+        <meta charset="UTF-8">
+        <!-- CSS interne -->
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./plugins/jquery-confirm-v3.3.4/css/jquery-confirm.css">
+        <link rel="stylesheet" type="text/css" href="./plugins/fontawesome-free-5.7.2-web/css/all.min.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="./plugins/moment-develop/min/moment.min.js"></script>
+        <script src="./plugins/moment-develop/min/locales.min.js"></script>
+        <script src="./plugins/jquery-confirm-v3.3.4/js/jquery-confirm.js"></script>
+        <script src="./plugins/fontawesome-free-5.7.2-web/js/all.min.js"></script>
+
+        
+
+        <!-- <script type="text/javascript" src="./javascript/estConnecte.js"></script> -->
+        <script type="text/javascript" src="./javascript/afficheSalle.js"></script>
+
+        
+    </head>
+    <body>
+        <div class="container" style="border: solid;">
+            <div class="row">
+                <div class="col-md-12 header-box">
+                    <h1 class="text-center font-white">La maison des ligues de Normandie </h1>
+                </div>
+            </div>
+            <div class="row boxSalle">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4 text-center">
+                            <label for="debutRecher">Début</label>
+                        </div>
+                        <!-- <div class="col-md-1"></div> -->
+                        <div class="col-md-4 text-center">
+                            <label for="debutRecher">Fin</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4 text-center">
+                            <input id="debutRecher" type="date" name="debutRecher">
+                        </div>
+                        <!-- <div class="col-md-1"></div> -->
+                        <div class="col-md-4 text-center">
+                            <input id="finRecher" type="date" name="finRecher">
+                        </div>
+                        <!-- <div class="col-md-1"></div> -->
+                        <div class="col-md-2 text-center">
+                            <input id="salleByDate" type="button" value="Envoyer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row"><div class="col-md-12"></div></div>
+            <div class="row"><div class="col-md-12"></div></div>
+            <div class="row">
+                <div class="col-sm">
+                    <div id="zoneSalle" class="row boxSalle" style="padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;">                        
+                        <!-- <div class="col-md-4">
+                            <div class="salle">
+                                <div class="row">
+                                    <div class="col-md-12 new-box">
+                                        <span title="Créer une salle">
+                                            <a href="index.php?action=editionSalle">
+                                                <img src="./images/img-add.png" class="img-thumbnail border-picture size-img-add">
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                            
+                        <div class="row"><div class="col-md-12"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal réservation d'une salle -->
+        <div class="modal fade bd-example-modal-lg" id="modalCreationSalle" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content" style="border-radius: 15px;">
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row text-center">
+                                        <div class="offset-md-1 col-md-6">
+                                            <div class="form-group">
+                                                <label for="nomNouvelleSalle">Nom salle</label>
+                                                <input type="text" class="form-control" id="nomNouvelleSalle" placeholder="Saisir le nom de la salle">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="nbPlaceNouvelleSalle">Nombre de place</label>
+                                                <input type="number" class="form-control" id="nbPlaceNouvelleSalle" value="0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">    
+                                <div class="col-md-12">
+                                    <span>Salle informatisée ?</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <div id="groupe-label-informatique" class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary active" style="border-radius:5px;">
+                                            <input type="radio" name="informatique" id="informatisee-1" autocomplete="off" checked value="Oui">Oui
+                                        </label>
+                                        <label class="btn btn-secondary" style="border-radius:5px;">
+                                            <input type="radio" name="informatique" id="informatisee-0" autocomplete="off" value="Non">Non
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="validCreationSalle" class="btn btn-primary">Valider</button>
+                        <button type="submit" id="annuleCreationSalle" class="btn btn-primary">Annuler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal edition d'une salle -->
+        <div class="modal fade bd-example-modal-lg" id="modalEditionSalle" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content" style="border-radius: 15px;">
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row text-center">
+                                            <div class="offset-md-1 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="nomNouvelleSalle">Nom salle</label>
+                                                    <input type="text" class="form-control" id="nomNouvelleSalle" placeholder="Saisir le nom de la salle">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="nbPlaceNouvelleSalle">Nombre de place</label>
+                                                    <input type="number" class="form-control" id="nbPlaceNouvelleSalle" value="0">
+                                                </div>
+                                            </div>
+                                            <p id="numSalle" style="display:none;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">    
+                                    <div class="col-md-12">
+                                        <span>Salle informatisée ?</span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div id="groupe-label-informatique" class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-secondary active" style="border-radius:5px;">
+                                                <input type="radio" name="informatique" id="informatisee-1" autocomplete="off" checked value="Oui">Oui
+                                            </label>
+                                            <label class="btn btn-secondary" style="border-radius:5px;">
+                                                <input type="radio" name="informatique" id="informatisee-0" autocomplete="off" value="Non">Non
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" id="validEditionSalle" class="btn btn-primary">Valider</button>
+                            <button type="submit" id="annuleEditionSalle" class="btn btn-primary">Annuler</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>
