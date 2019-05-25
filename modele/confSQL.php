@@ -1,6 +1,6 @@
 <?php
   define("HOST", "localhost");
-  define("USER", "root");
-  define("PASSWORD", "");
-  define("DATABASE", "ppe 1");
+  define("USER", "gdilon");
+  define("PASSWORD", "aifccSIO");
+  define("DATABASE", "gdilon");
   define("PORT", "3306");
